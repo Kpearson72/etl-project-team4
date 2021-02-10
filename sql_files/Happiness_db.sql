@@ -8,10 +8,10 @@ DROP TABLE IF EXISTS world_happiness;
 DROP TABLE IF EXISTS un_government;
 
 
-CREATE TABLE un_government (
+CREATE TABLE systems_govt (
 	id SERIAL PRIMARY KEY,
-    country VARCHAR NOT NULL,
-    world_region VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
+    head_of_state VARCHAR NOT NULL,
     gov_type VARCHAR NOT NULL
 );
 
