@@ -60,6 +60,7 @@ We started by reviewing our data and constructing an ERD and established tables 
 
 ![ERD_team_4.png](Images/erd_team_4.png)
 
+![load_image.png](Images/load_image.png)
 ---
 
 ### **Sources of Data:**
