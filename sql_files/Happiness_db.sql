@@ -8,19 +8,31 @@ DROP TABLE IF EXISTS un_govt ;
 
 
 CREATE TABLE un_govt (
-	id INT PRIMARY KEY,
+	id INT PRIMARY KEY ,
     country VARCHAR NOT NULL,
     head_of_state VARCHAR NOT NULL,
 	constitutional_form VARCHAR NOT NULL,
     basis_of_executive_legitimacy VARCHAR NOT NULL
 );
 
+
+CREATE TABLE gov_response (
+	response_id INT PRIMARY KEY,
+	country_id INT ,
+	FOREIGN KEY (country_id)REFERENCES un_govt(id),
+    gov_resp_date DATE   NOT NULL,
+    gov_resp_desc VARCHAR   NOT NULL,
+	enforcer VARCHAR NOT NULL,
+    gov_resp_type VARCHAR   NOT NULL,
+    gov_resp_link_src VARCHAR   NOT NULL
+);
+
 CREATE TABLE world_happiness (
     country_id INT PRIMARY KEY,
 	FOREIGN KEY (country_id) REFERENCES un_govt(id),
     world_region VARCHAR NOT NULL,
-	happiness_score FLOAT   NOT NULL,
-    social_support FLOAT   NOT NULL,
+	happiness_score FLOAT NOT NULL,
+    social_support FLOAT NOT NULL,
     healthy_life_expectancy FLOAT   NOT NULL,
     freedom_of_choice FLOAT   NOT NULL,
     generosity FLOAT   NOT NULL,
@@ -30,27 +42,13 @@ CREATE TABLE world_happiness (
 
 CREATE TABLE world_covid_data (
 	covid_cases_id INT PRIMARY KEY,
-    country VARCHAR,
-	FOREIGN KEY (country)REFERENCES un_govt(id),
-    date DATE   NOT NULL,
+	country_id INT,
+	FOREIGN KEY (country_id) REFERENCES un_govt(id),
+    date DATE NOT NULL,
     new_cases INT,
     new_deaths INT,
 	icu_patients INT 
 );
-
-CREATE TABLE gov_response (
-	response_id INT PRIMARY KEY,
-	country VARCHAR NOT NULL,
---     country_id INT NOT NULL,
-	FOREIGN KEY (country)REFERENCES un_govt(country),
-    gov_resp_date DATE   NOT NULL,
-    gov_resp_desc VARCHAR   NOT NULL,
-	enforcer VARCHAR NOT NULL,
-    gov_resp_type VARCHAR   NOT NULL,
-    gov_resp_link_src VARCHAR   NOT NULL
-	
-);
-
 
 
 
