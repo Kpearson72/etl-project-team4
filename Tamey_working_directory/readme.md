@@ -1,9 +1,7 @@
 # World Happiness and Covid
 Members: Avery Croley, Karen Pearson, Tamara Washington
 
- 
-
-![globe_image.png](images/globe_image.png)
+ ![globe_image.png](images/globe_image.png)
 
 ### **Project Overview**
 The Covid-19 pandemic has changed the world in unimaginable ways. It is arguable the worse pandemic the world has seen in 100 years. No aspect of life was left untouched including work, schools, social impacts and the economy. 
@@ -51,7 +49,6 @@ To address data integrity we;
 - Some countries were removed due to lack of data.
 - Country names were standardized to be consistent across all tables.
 - Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
-
 
 ![kwn_transform.png](Images/kwn_transform.png)
 
