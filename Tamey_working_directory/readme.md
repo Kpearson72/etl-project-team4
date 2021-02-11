@@ -58,7 +58,7 @@ To address data integrity we;
 
 We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connect with postgres and loaded our schema.
 
-![ERD_team_4.png](Images/ERD_team_4.png)
+![ERD_team_4.png](Images/erd_team_4.png)
 
 ---
 
