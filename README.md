@@ -3,7 +3,7 @@
 # World Happiness and Covid
 Members: Avery Croley, Karen Pearson, Tamara Washington
 
- ![globe_image.png](images/globe_image.png)
+ ![globe_image.png](./images/globe_image.png)
 
 ### **Project Overview**
 The Covid-19 pandemic has changed the world in unimaginable ways. It is arguable the worse pandemic the world has seen in 100 years. No aspect of life was left untouched including work, schools, social impacts and the economy. 
@@ -52,7 +52,7 @@ To address data integrity we;
 - Country names were standardized to be consistent across all tables.
 - Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
 
-![kwn_transform.png](Images/kwn_transform.png)
+![kwn_transform.png](./images/kwn_transform.png)
 
 ---
 
@@ -60,9 +60,9 @@ To address data integrity we;
 
 We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connect with postgres and loaded our schema.
 
-![ERD_team_4.png](Images/erd_team_4.png)
+![ERD_team_4.png](./images/erd_team_4.png)
 
-![load_image.png](Images/load_image.png)
+![load_image.png](./images/load_image.png)
 ---
 
 ### **Sources of Data:**
