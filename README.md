@@ -52,7 +52,7 @@ To address data integrity we;
 - Country names were standardized to be consistent across all tables.
 - Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
 
-![kwn_transform.png](./Tamey_working_directory/Images/kwn_transform.png)
+![kwn_transform.png](./Tamey_working_directory/Images/kwn_transform.PNG)
 
 ---
 
@@ -60,7 +60,7 @@ To address data integrity we;
 
 We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connect with postgres and loaded our schema.
 
-![ERD_team_4.png](./Tamey_working_directory/Images/erd_team_4.png)
+![ERD_team_4.png](./Tamey_working_directory/Images/ERD_team_4.png)
 
 ![load_image.png](./Tamey_working_directory/Images/load_image.png)
 ---
