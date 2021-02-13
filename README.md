@@ -58,7 +58,11 @@ To address data integrity we;
 
 ### **Load**
 
+<<<<<<< HEAD
 We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connect with postgres and loaded our schema.
+=======
+We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connect with postgres and we loaded the data into a schema named Happiness_db.sql in pgAdmin.
+>>>>>>> upstream/main
 
 ![ERD_team_4.png](./Tamey_working_directory/Images/ERD_team_4.png)
 
