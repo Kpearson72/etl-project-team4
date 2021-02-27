@@ -3,7 +3,7 @@
 # World Happiness and Covid
 Members: Avery Croley, Karen Pearson, Tamara Washington
 
- ![globe_image.png](./Tamey_working_directory/Images/globe_image.png)
+ ![globe_image.png](Working_Notebooks/Goverment_Type/Images/globe_image.png)
 
 ### **Project Overview**
 The Covid-19 pandemic has changed the world in unimaginable ways. It is arguable the worse pandemic the world has seen in 100 years. No aspect of life was left untouched including work, schools, social impacts and the economy. 
@@ -42,27 +42,68 @@ This document reports and visualizes the data on confirmed cases and deaths from
 The CoronaNet Research Project aims to collect as much information as possible about the various fine-grained actions governments are taking to defeat the coronavirus. This is made available in CSV format.
 
 ---
-### **Transform**
+## **Transform**
 All CSV and HTML files were read into Jupyter Notebook to transform our datasets. 
 
 To address data integrity we;
 
+- Organized our data sets using and ERD Diagram from [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) website
+  ![ERD](ERD/ERD_Covid_vs_Happiness.png)
 - Reviewed the files and transformed into data frames. 
 - Some countries were removed due to lack of data.
 - Country names were standardized to be consistent across all tables.
 - Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
 
-![kwn_transform.png](./Tamey_working_directory/Images/kwn_transform.PNG)
+#### Government
+
+1. Updated country names - to keep it consistent with other datasets.
+2. Renamed columns to fit ERD
+3. Dropped countries - to keep it consistent with other datasets
+4. Replaced NaN values
+5. added country id column with unique numbers
+
+#### World Happiness 
+
+1. Dropped columns not needed
+2. Renamed columns to fit ERD
+3. Renamed country names - to keep it consistent with other datasets
+4. Merged country id column from government dataframe with happiness dataframe
+5. Replace NaN and 0
+6. Removed 2021 dates
+7. Converted dtypes to int and datetime
+
+#### Covid data
+
+1. Dropped columns not needed
+2. Renamed columns to fit ERD
+3. Renamed country names - to keep it consistent with other datasets
+4. Merged country id column from government dataframe with happiness dataframe
+
+#### COVID-19 Government Responses
+
+1. Dropped columns that were not in our ERD
+2. Dropped rows that did not contain a https link
+3. Kept rows that had contained an enforcer type.
+4. Dropped rows with empty cells in all columns.
+5. Kept the last row of duplicates
+6. Renamed columns to keep with ERD format
+7. Removed unique values within cell string
+8. Delete rows that have countries not in other datasets, to keep it consistent.
+9. Merged dataframes to keep same country id as other datasets
+10. Dropped rows with NaN values
+11. Replaced object type with either Int64 or Datetime64
+
+![transform]
 
 ---
 
-### **Load**
+## **Load**
 
-We started by reviewing our data and constructing an ERD and established tables and columns. An engine was constructed to be connected with postgres and we then loaded the data into a schema named Happiness_db.sql in pgAdmin.
+First, using pgAdmin we created our table [schema](sql_files/Happiness_db.sql). In [jupyter notebook](etl_prpject_final_notebook.ipynb), we executed each dataframe to sql using ```df.to_sql()```. This action imported our database into in the newly created tables we made in postgres. 
 
-![ERD_team_4.png](./Tamey_working_directory/Images/ERD_team_4.png)
 
-![load_image.png](./Tamey_working_directory/Images/load_image.png)
+
+
 ---
 
 ### **Sources of Data:**
