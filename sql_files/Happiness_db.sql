@@ -50,5 +50,5 @@ CREATE TABLE world_covid_data (
 	icu_patients INT 
 );
 
-
+Select gov_resp_desc from gov_response;
 

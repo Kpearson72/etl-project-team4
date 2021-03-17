@@ -47,59 +47,66 @@ All CSV and HTML files were read into Jupyter Notebook to transform our datasets
 
 To address data integrity we;
 
-- Organized our data sets using an ERD Diagram from [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) website
+1. Organized our data sets using an ERD Diagram from [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) website
   ![ERD](ERD/ERD_Covid_vs_Happiness.png)
-- Reviewed the files and transformed into data frames. Genarally, we performed the following for all tables: 
-- Some countries were removed due to lack of data.
+- Reviewed the files and normalized the data by having Primary keys and Foreign Keys for each table. We decided that the data had to have a connection by id and country; and so we created a country id.
+  
+2. In jupyter notebook, we imported pandas, numpy, datetime, sqlalchemy to clean up our datasets. We first read the data and created dataframes. Basically, we performed the following for all tables: 
+- Using df.drop(), we dropped countries - to keep it consistent with other datasets -> some countries were removed due to lack of data.
 - Country names were standardized to be consistent across all tables.
-- Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
+- Using df.fillna(), NaN values were replaced 
+- Using .count(), we kept track of the number of rows in each column.
+- Specifically, we performed the following: 
 
 #### Government
 
-1. Updated country names - to keep it consistent with other datasets.
-2. Renamed columns to fit ERD
-3. Dropped countries - to keep it consistent with other datasets
-4. Replaced NaN values
-5. added country id column with unique numbers
+1. Read the data using pd.read_html()
+2. Updated country names - to keep it consistent with other datasets using df.rename()
+3. Using df.fillna(), NaN values were replaced -> list of countries wiki where there was "no constitutionally-defined basis to current regime"
+4. Using df.reset_index(), we reset the index 
+5. added an id column with unique numbers using pandas, this would become the primary care share throughout each dataset.
 
 #### World Happiness 
 
-1. Dropped columns not needed
-2. Renamed columns to fit ERD
-3. Renamed country names - to keep it consistent with other datasets
-4. Merged country id column from government dataframe with happiness dataframe
-5. Replace NaN and 0
-6. Removed 2021 dates
-7. Converted dtypes to int and datetime
+1. pd.read_csv()
+2. Dropped columns not needed
+3. Renamed columns to fit ERD
+4. Renamed country names - to keep it consistent with other datasets
+5. Merged country id column from government dataframe with happiness dataframe
+6. Replace NaN and 0
+7. Removed 2021 dates
+8. Converted dtypes to int and datetime
 
 #### Covid data
 
-1. Dropped columns not needed
-2. Renamed columns to fit ERD
-3. Renamed country names - to keep it consistent with other datasets
-4. Merged country id column from government dataframe with happiness dataframe
+1. pd.read_csv()
+2. Dropped columns not needed
+3. Renamed columns to fit ERD
+4. Renamed country names - to keep it consistent with other datasets
+5. Merged country id column from government dataframe with happiness dataframe
 
 #### COVID-19 Government Responses
 
-1. Dropped columns that were not in our ERD
-2. Dropped rows that did not contain a https link
-3. Kept rows that had contained an enforcer type.
-4. Dropped rows with empty cells in all columns.
-5. Kept the last row of duplicates
-6. Renamed columns to keep with ERD format
-7. Removed unique values within cell string
-8. Delete rows that have countries not in other datasets, to keep it consistent.
-9. Merged dataframes to keep same country id as other datasets
-10. Dropped rows with NaN values
-11. Replaced object type with either Int64 or Datetime64
+1. pd.read_csv()
+2. Dropped columns that were not in our ERD
+3. Dropped rows that did not contain a https link
+4. Kept rows that had contained an enforcer type.
+5. Dropped rows with empty cells in all columns.
+6. Kept the last row of duplicates
+7. Renamed columns to keep with ERD format
+8. Removed unique values within cell string
+9. Delete rows that have countries not in other datasets, to keep it consistent.
+10. Merged dataframes to keep same country id as other datasets
+11. Dropped rows with NaN values
+12. Replaced object type with either Int64 or Datetime64
 
-![transform]
+
 
 ---
 
 ## **Load**
 
-First, using pgAdmin we created our table [schema](sql_files/Happiness_db.sql)![schema](images/PostgresSQL_12_upload.png). In [jupyter notebook](etl_prpject_final_notebook.ipynb), we executed each dataframe to sql using ```df.to_sql()```. ![jupyter notebook df to sql](Working_Notebooks/Goverment_Type/Images/load_image.png)This action imported our database into in the newly created tables we made in postgres. Finally, we checked if the the data had imported in to pgAdmin. ![imported data](images/PostgresSQL_result_gov_response.png)
+First, using pgAdmin we created our table [schema](sql_files/Happiness_db.sql)![schema](images/PostgresSQL_12_upload.png). In [jupyter notebook](etl_prpject_final_notebook.ipynb), we executed each dataframe to sql using ```df.to_sql()```. ![jupyter notebook df to sql](Working_Notebooks/Goverment_Type/Images/load_image.png)This action imported our database into in the newly created tables we made in postgres. Finally, we checked if the data had imported in to pgAdmin correctly. ![imported data](images/PostgresSQL_result_gov_response.png)
 
 
 
