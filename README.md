@@ -47,9 +47,9 @@ All CSV and HTML files were read into Jupyter Notebook to transform our datasets
 
 To address data integrity we;
 
-- Organized our data sets using and ERD Diagram from [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) website
+- Organized our data sets using an ERD Diagram from [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) website
   ![ERD](ERD/ERD_Covid_vs_Happiness.png)
-- Reviewed the files and transformed into data frames. 
+- Reviewed the files and transformed into data frames. Genarally, we performed the following for all tables: 
 - Some countries were removed due to lack of data.
 - Country names were standardized to be consistent across all tables.
 - Replaced null values on the list of countries wiki where there was "no constitutionally-defined basis to current regime"
@@ -99,7 +99,7 @@ To address data integrity we;
 
 ## **Load**
 
-First, using pgAdmin we created our table [schema](sql_files/Happiness_db.sql). In [jupyter notebook](etl_prpject_final_notebook.ipynb), we executed each dataframe to sql using ```df.to_sql()```. This action imported our database into in the newly created tables we made in postgres. 
+First, using pgAdmin we created our table [schema](sql_files/Happiness_db.sql)![schema](images/PostgresSQL_12_upload.png). In [jupyter notebook](etl_prpject_final_notebook.ipynb), we executed each dataframe to sql using ```df.to_sql()```. ![jupyter notebook df to sql](Working_Notebooks/Goverment_Type/Images/load_image.png)This action imported our database into in the newly created tables we made in postgres. Finally, we checked if the the data had imported in to pgAdmin. ![imported data](images/PostgresSQL_result_gov_response.png)
 
 
 
